@@ -1,0 +1,45 @@
+{
+  "name": "vue2-dynamic-breadcrumbs",
+  "version": "1.0.0",
+  "description": "Breadcrumbs plugin for Vue2 with parent support and dynamic templates",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nt0tsky/Vue2-dynamic-breadcrumbs.git"
+  },
+  "keywords": [
+    "breadcrumbs",
+    "vue",
+    "vuejs",
+    "vue2",
+    "plugin",
+    "route",
+    "router",
+    "vue-router"
+  ],
+  "author": {
+    "name": "Nikita Totskiy",
+    "email": "nikita.totskiy@directheroes.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nt0tsky/Vue2-dynamic-breadcrumbs/issues"
+  },
+  "homepage": "https://github.com/nt0tsky/Vue2-dynamic-breadcrumbs#readme",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "vue": "^2.6.12",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.11.4"
+  }
+}
