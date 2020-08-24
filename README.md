@@ -1,4 +1,4 @@
-DH Breadcrumbs plugin
+# Vue2 Dynamic Breadcrumbs
 
 Installation
 
