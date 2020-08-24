@@ -2,5 +2,5 @@ const path = require("path");
 
 module.exports = {
   outputDir: path.resolve(__dirname, "../docs"),
-  publicPath: process.env.NODE_ENV === "production" ? "/Vue2-dynamic-breadcrumbs/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/Vue2-dynamic-breadcrumbs/docs" : "/",
 };
