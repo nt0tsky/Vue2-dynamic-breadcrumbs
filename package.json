@@ -1,6 +1,6 @@
 {
-  "name": "vue2-dynamic-breadcrumbs",
-  "version": "1.0.0",
+  "name": "@nst0tsky-dev/vue2-dynamic-breadcrumbs",
+  "version": "0.0.1",
   "description": "Breadcrumbs plugin for Vue2 with parent support and dynamic templates",
   "main": "index.js",
   "scripts": {
@@ -20,10 +20,7 @@
     "router",
     "vue-router"
   ],
-  "author": {
-    "name": "Nikita Totskiy",
-    "email": "nikita.totskiy@directheroes.com"
-  },
+  "author": "Nikita Totskiy <nikita.totskiy@directheroes.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nt0tsky/Vue2-dynamic-breadcrumbs/issues"
