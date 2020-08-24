@@ -1,8 +1,8 @@
 {
-  "name": "vue-dynamic-breadcrumbs",
-  "version": "0.0.5",
+  "name": "vue2-dynamic-breadcrumbs",
+  "version": "0.0.6",
   "description": "Breadcrumbs plugin for Vue2 with parent support and dynamic templates",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "webpack",
     "prepare": "npm run build"
@@ -11,6 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/nt0tsky/Vue2-dynamic-breadcrumbs.git"
   },
+  "files": [
+    "src"
+  ],
+  "jsnext:main": "src/index.js",
   "keywords": [
     "breadcrumbs",
     "vue",

@@ -1,7 +1,7 @@
 path = require("path");
 
 module.exports = {
-  entry: "./src/breadcrumbs.js",
+  entry: "./src/index.js",
   output: {
     library: "VueDynamicBreadcrumbs",
     libraryTarget: "umd",
