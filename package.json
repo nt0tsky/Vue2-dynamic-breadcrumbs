@@ -1,10 +1,10 @@
 {
   "name": "vue2-dynamic-breadcrumbs",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Breadcrumbs plugin for Vue2 with parent support and dynamic templates",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack --config ./config/webpack.config.js",
+    "build": "webpack --config ./config/webpack.config.js && cd demo && yarn build && cd ..",
     "prepare": "npm run build"
   },
   "repository": {
