@@ -11,6 +11,9 @@ Installation
 - Route context
 ---
 
+## Demo
+[DEMO](https://nt0tsky.github.io/Vue2-dynamic-breadcrumbs/)
+
 ## Usage
 
 Use the meta.breadcrumb: property of a route or child route, e.g.:
