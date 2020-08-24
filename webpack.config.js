@@ -3,7 +3,7 @@ path = require("path");
 module.exports = {
   entry: "./src/breadcrumbs.js",
   output: {
-    library: "VueDHBreadcrumbs",
+    library: "VueDynamicBreadcrumbs",
     libraryTarget: "umd",
     filename: "index.js",
   },
