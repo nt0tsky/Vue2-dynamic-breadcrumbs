@@ -4,7 +4,14 @@ Installation
 
 `npm install --save @nst0tsky-dev/vue2-dynamic-breadcrumbs`
 
-Usage
+## Support 
+- Dynamic template
+- parent support
+- short label
+- Route context
+---
+
+## Usage
 
 Use the meta.breadcrumb: property of a route or child route, e.g.:
 breadcrumb property can be:
@@ -48,7 +55,7 @@ Also, breadcrumb has dynamic parent support, that will search by route name and 
         }
       }
 
-Get breadcrumbs
+### Get breadcrumbs
 
 After import plugin, we will have access to breadcrumbs structure with render hierarchy via property $breadcrumb
 
@@ -62,7 +69,7 @@ After import plugin, we will have access to breadcrumbs structure with render hi
       },
 
 
-Breadcrumb context
+### Breadcrumb context
 
 Every breadcrumb has a unique context(which you can use in render template) relative to his root-view-page (not absolute root) e.g:
 
