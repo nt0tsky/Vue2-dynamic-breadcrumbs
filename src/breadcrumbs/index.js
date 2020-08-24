@@ -16,21 +16,21 @@ export const buildRoutes = (route, router) => {
     return parents;
   };
 
-  const hasParent = route => {
+  const hasParent = (route) => {
     const { meta } = route;
 
     return meta && meta.breadcrumb && meta.breadcrumb.parent;
   };
 
-  const routeDTO = match => {
+  const routeDTO = (match) => {
     return {
       path: match.path,
       name: match.name,
-      meta: match.meta
+      meta: match.meta,
     };
   };
 
-  const routes = [...route.matched.map(match => routeDTO(match))];
+  const routes = [...route.matched.map((match) => routeDTO(match))];
 
   routes.sort((lhs, rhs) => lhs.path.length - rhs.path.length);
 
@@ -42,11 +42,15 @@ export const buildRoutes = (route, router) => {
     if (!routeIt.name) {
       const { route } = router.resolve({ path: routeIt.path });
 
-      if (output.find(r => r.name === route.name)) {
+      if (output.find((r) => r.name === route.name)) {
         continue;
       }
 
       output.push(route);
+
+      const pRoute = searchParents(route);
+
+      output = output.concat(pRoute);
     } else {
       output.push(routeIt);
     }
@@ -56,13 +60,13 @@ export const buildRoutes = (route, router) => {
     output = output.concat(parents);
   }
 
-  return output.filter(o => !!o.meta.breadcrumb).reverse();
+  return output.filter((o) => !!o.meta.breadcrumb).reverse();
 };
 
 export const collectBreadcrumbs = ($route, $router, $context) => {
   const routes = buildRoutes($route, $router);
 
-  const breadcrumbs = routes.flatMap(route => {
+  const breadcrumbs = routes.flatMap((route) => {
     const data = Vue.observable({
       name: route.name,
       path:
@@ -72,7 +76,7 @@ export const collectBreadcrumbs = ($route, $router, $context) => {
       query: $route.query,
       label: "",
       template: null,
-      context: $context
+      context: $context,
     });
 
     if (!route.meta || !route.meta.breadcrumb) return data;
@@ -97,10 +101,11 @@ export const collectBreadcrumbs = ($route, $router, $context) => {
   return breadcrumbs;
 };
 
-export const routeContextPath = $route => {
+export const routeContextPath = ($route) => {
   const isNotRoot = $route.matched.length > 1;
 
-  if (!isNotRoot) return $route.matched[0].path;
+  if (!isNotRoot)
+    return ($route.matched.length && $route.matched[0].path) || $route.path;
 
   return $route.matched[1].path;
 };
