@@ -11,8 +11,7 @@ Installation
 - Route context
 ---
 
-## Demo
-[DEMO](https://nt0tsky.github.io/Vue2-dynamic-breadcrumbs/)
+## [DEMO](https://nt0tsky.github.io/Vue2-dynamic-breadcrumbs/)
 
 ## Usage
 
