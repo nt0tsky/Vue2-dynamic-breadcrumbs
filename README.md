@@ -11,6 +11,7 @@ Installation
 - parent support
 - short label
 - Route context
+- Breadcrumb render via condition (based on route)
 ---
 
 ## [DEMO](https://nt0tsky.github.io/Vue2-dynamic-breadcrumbs/)

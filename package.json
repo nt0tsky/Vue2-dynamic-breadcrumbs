@@ -1,6 +1,6 @@
 {
   "name": "vue2-dynamic-breadcrumbs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Breadcrumbs plugin for Vue2 with parent support and dynamic templates",
   "main": "dist/index.js",
   "scripts": {
