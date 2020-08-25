@@ -1,6 +1,8 @@
 import Vue from "vue";
 
 export const buildRoutes = (route, router) => {
+  const renderRouterRoute = route;
+
   const searchParents = (routeIt, parents = []) => {
     if (hasParent(routeIt)) {
       const { breadcrumb } = routeIt.meta;
@@ -16,10 +18,16 @@ export const buildRoutes = (route, router) => {
     return parents;
   };
 
+  const hasBreadcrumb = (route) => {
+    const { meta } = route;
+
+    return meta && meta.breadcrumb;
+  };
+
   const hasParent = (route) => {
     const { meta } = route;
 
-    return meta && meta.breadcrumb && meta.breadcrumb.parent;
+    return hasBreadcrumb(route) && meta.breadcrumb.parent;
   };
 
   const routeDTO = (match) => {
@@ -36,6 +44,26 @@ export const buildRoutes = (route, router) => {
 
   let output = [];
 
+  const appendFn = (route) => {
+    const isInsertable = (r) => {
+      if (hasBreadcrumb(r) && r.meta.breadcrumb.condition) {
+        return r.meta.breadcrumb.condition({ route: renderRouterRoute });
+      }
+
+      return true;
+    };
+
+    if (!isInsertable(route)) {
+      return;
+    }
+
+    output.push(route);
+
+    const parents = searchParents(route).filter((p) => isInsertable(p));
+
+    output = output.concat(parents);
+  };
+
   for (let i = routes.length - 1; i >= 0; i--) {
     const routeIt = routes[i];
 
@@ -46,18 +74,12 @@ export const buildRoutes = (route, router) => {
         continue;
       }
 
-      output.push(route);
+      appendFn(route);
 
-      const pRoute = searchParents(route);
-
-      output = output.concat(pRoute);
-    } else {
-      output.push(routeIt);
+      continue;
     }
 
-    const parents = searchParents(routeIt);
-
-    output = output.concat(parents);
+    appendFn(routeIt);
   }
 
   return output.filter((o) => !!o.meta.breadcrumb).reverse();

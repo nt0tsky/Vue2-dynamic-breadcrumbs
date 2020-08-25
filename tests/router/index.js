@@ -20,6 +20,48 @@ export default [
         },
       },
       {
+        path: "condition",
+        component: RouterView,
+        children: [
+          {
+            path: "",
+            name: "conditionName",
+            component: Component,
+            meta: {
+              breadcrumb: {
+                label: "Condition",
+                parent: "indexName",
+              },
+            },
+          },
+          {
+            path: "step1",
+            component: RouterView,
+            children: [
+              {
+                path: "",
+                name: "conditionStep1",
+                component: Component,
+                meta: {
+                  breadcrumb: {
+                    label: "Condition 1",
+                    condition: ({ route }) => route.name === "conditionStep1",
+                  },
+                },
+              },
+              {
+                path: "level1",
+                name: "conditionStep1Level1",
+                component: Component,
+                meta: {
+                  breadcrumb: "Condition 1 level 1",
+                },
+              },
+            ],
+          },
+        ],
+      },
+      {
         path: "account",
         component: RouterView,
         children: [

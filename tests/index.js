@@ -12,6 +12,10 @@ export const pathBuilder = (wrapper) => {
   return wrapper.vm.$breadcrumbs.flatMap((b) => b.name).join("->");
 };
 
+export const breadcrumbsBuilder = (wrapper) => {
+  return wrapper.vm.$breadcrumbs.flatMap((b) => b.label).join("->");
+}
+
 export const pwd = (wrapper) => {
   return wrapper.vm.$route.path;
 };
