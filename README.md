@@ -2,7 +2,8 @@
 
 Installation
 
-`npm install --save @nst0tsky-dev/vue2-dynamic-breadcrumbs`
+`npm install --save vue2-dynamic-breadcrumbs`
+`yarn add vue2-dynamic-breadcrumbs`
 
 ## Support 
 - Dynamic template
