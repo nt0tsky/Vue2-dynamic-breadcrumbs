@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueDynamicBreadcrumbs from "../../src/index";
+import VueDynamicBreadcrumbs from "../../../src/index";
 import router from './router'
 
 Vue.config.productionTip = false

@@ -1,11 +1,12 @@
 {
   "name": "vue2-dynamic-breadcrumbs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Breadcrumbs plugin for Vue2 with parent support and dynamic templates",
   "main": "dist/index.js",
   "scripts": {
-    "build": "webpack --config ./config/webpack.config.js && cd demo && yarn build && cd ..",
-    "prepare": "npm run build"
+    "build": "webpack --config ./config/webpack.config.js && cd src/demo && yarn build && cd ..",
+    "prepare": "npm run build && npm run test",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -32,16 +33,39 @@
   },
   "homepage": "https://github.com/nt0tsky/Vue2-dynamic-breadcrumbs#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "@vue/test-utils": "^1.0.4",
     "babel": "^6.23.0",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
-    "babel-preset-env": "^1.7.0",
+    "jest": "^26.4.2",
     "vue": "^2.6.12",
+    "vue-jest": "^3.0.6",
+    "vue-router": "^3.4.3",
+    "vue-template-compiler": "^2.6.12",
+    "vue-test": "^1.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@babel/core": "^7.11.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue-jest"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
   }
 }
