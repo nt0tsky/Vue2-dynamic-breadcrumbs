@@ -19,19 +19,33 @@ Installation
 ## Usage
 
 Use the meta.breadcrumb: property of a route or child route, e.g.:
+
 breadcrumb property can be:
 
 - as a string for render as plain text
 - vue template for custom markup
 
-Also, breadcrumb has dynamic parent support, that will search by route name and insert before breadcrumb iterator. For example, we have a case when we cant insert route as a child of one => we can directly set a parent of the route for correct render of a breadcrumbs hierarchy.
+### Breadcrumb render via condition(based on route):
 
-    ...
+- For example we need to exclude breadcrumb on multiple pages, so for doing that need to set condition:
+  ```
+  meta: {
+    breadcrumb: {
+      label: "Settings",
+      condition: ({ route }) => !['accounts', 'settings'].includes(route.name)
+    }
+  }
+  ```
+  So when the page route will be `accounts` or `settings` breadcrumbs will not render.
+
+
+### Breadcrumb parent dynamic support:
+
+- Also, breadcrumb has dynamic parent support, that will search by route name and insert before breadcrumb iterator. For example, we have a case when we cant insert route as a child of one => we can directly set a parent of the route for correct render of a breadcrumbs hierarchy.
+  ```
     meta: {
       breadcrumb: "Account dashboard"
-    }
-
-
+    },
     {
         path: "/:accountId",
         component: AccountDetails,
@@ -59,20 +73,21 @@ Also, breadcrumb has dynamic parent support, that will search by route name and 
           }
         }
       }
+  ```
 
 ### Get breadcrumbs
 
 After import plugin, we will have access to breadcrumbs structure with render hierarchy via property $breadcrumb
 
-
-      computed: {
-        breadcrumbs() {
-          const { $breadcrumbs } = this;
-    
-          return $breadcrumbs;
-        },
+```
+    computed: {
+      breadcrumbs() {
+        const { $breadcrumbs } = this;
+  
+        return $breadcrumbs;
       },
-
+    },
+```
 
 ### Breadcrumb context
 
@@ -86,8 +101,7 @@ Every breadcrumb has a unique context(which you can use in render template) rela
     So context key will be `/:accountId/audience`
 
 We can bind context on every vue component via call method bindContext of instance  $breadcrumbManager (that will be bind in page-context and will be available in all hierarchy of breadcrumbs hierarchy) eg:
-
-
+```
       watch: {
         contactProfile: {
           immediate: true,
@@ -98,9 +112,9 @@ We can bind context on every vue component via call method bindContext of instan
           },
         }
       },
-
+```
 and using it after previous step inside breadcrumb template as:
-
+```
     <template>
       <div class="dh-breadcrumbs__item dh-breadcrumbs-account-list">
         <router-link
@@ -120,3 +134,4 @@ and using it after previous step inside breadcrumb template as:
       }
     };
     </script>
+```
